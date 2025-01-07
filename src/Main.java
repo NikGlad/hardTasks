@@ -20,29 +20,53 @@ import static java.util.Arrays.asList;
  */
 
 
-public class Main {
+//public class Main {
+//
+//    public static void main(String[] args) {
+//        TreeMap<Integer, String> map = new TreeMap<>();
+//
+//        map.put(0, "Newbie");
+//        map.put(200, "Trainee");
+//        map.put(800, "Junior");
+//        map.put(1200, "Strong Junior");
+//        map.put(2700, "Middle");
+//        map.put(3500, "Strong Middle");
+//        map.put(5000, "Senior");
+//
+//        Random random = new Random();
+//        for (int i = 0; i < 10; i++) {
+//            int salary = random.nextInt(7000);
+//            String position = getJobTitle(map, salary);
+//            System.out.printf("Зарплате $%d соответствует позиция %s%n", salary, position);
+//        }
+//    }
+//
+//    public static String getJobTitle(TreeMap<Integer, String> map, Integer salary) {
+//        return map.floorEntry(salary).getValue();
+//    }
+//}
 
-    public static void main(String[] args) {
-        TreeMap<Integer, String> map = new TreeMap<>();
+/*
+Изучаем методы класса Collections, часть 1
 
-        map.put(0, "Newbie");
-        map.put(200, "Trainee");
-        map.put(800, "Junior");
-        map.put(1200, "Strong Junior");
-        map.put(2700, "Middle");
-        map.put(3500, "Strong Middle");
-        map.put(5000, "Senior");
+В классе Solution объявлены методы: copy(ArrayList<String>, ArrayList<String>), addAll(ArrayList<String>, String...),
+replaceAll(ArrayList<String>, String, String). Тебе нужно переписать их реализацию,
+используя при этом только соответствующие методы класса Collections. Параметр String... означает то же, что и String[],
+только аргументы String можно передавать через запятую.
+*/
 
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int salary = random.nextInt(7000);
-            String position = getJobTitle(map, salary);
-            System.out.printf("Зарплате $%d соответствует позиция %s%n", salary, position);
-        }
-    }
-
-    public static String getJobTitle(TreeMap<Integer, String> map, Integer salary) {
-        return map.floorEntry(salary).getValue();
-    }
-}
+//public class Main {
+//
+//    public static void copy(ArrayList<String> destination, ArrayList<String> source) {
+//        Collections.copy(destination, source);
+//    }
+//
+//    public static void addAll(ArrayList<String> list, String... strings) {
+//        Collections.addAll(list, strings);
+//    }
+//
+//    public static void replaceAll(ArrayList<String> list, String oldValue, String newValue) {
+//        Collections.replaceAll(list, oldValue, newValue);
+//    }
+//}
 
