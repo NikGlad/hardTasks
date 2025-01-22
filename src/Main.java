@@ -1,12 +1,11 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 import java.util.TreeMap;
 
 //import static com.sun.org.apache.bcel.internal.classfile.Utility.printArray;
 import static java.util.Arrays.asList;
+
 
 /*
 Зарплаты и позиции
@@ -70,3 +69,40 @@ replaceAll(ArrayList<String>, String, String). Тебе нужно перепи�
 //    }
 //}
 
+//class Main{
+//    public static void main(String[] args) {
+//        System.out.println("hello");
+//    }
+//}
+
+/*
+Потоки
+Перепутанные байты
+Напиши программу, которая считывает из консоли путь к файлу1 и путь к файлу2.
+Далее все байты из файла1 записывает в файл2,
+но при этом меняет их местами по такому принципу: первый со вторым, третий с четвертым и т. д.
+Если последний байт в файле1 нечетный, пишем его в файл2 как есть.
+Для чтения и записи файлов используй FileInputStream и FileOutputStream.
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in);
+             FileInputStream fis = new FileInputStream(scanner.nextLine());
+             FileOutputStream fos = new FileOutputStream(scanner.nextLine())) {
+            byte[] bytesIn = fis.readAllBytes();
+            byte[] bytesOut = new byte[bytesIn.length];
+            for (int i = 0; i < bytesIn.length; i += 2) {
+                if (i < bytesIn.length - 1) {
+                    bytesOut[i] = bytesIn[i + 1];
+                    bytesOut[i + 1] = bytesIn[i];
+                } else {
+                    bytesOut[i] = bytesIn[i];
+                }
+            }
+            fos.write(bytesOut);
+        } catch (IOException e) {
+            System.out.println("Something went wrong : " + e);
+        }
+    }
+}
